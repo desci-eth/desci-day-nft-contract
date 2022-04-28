@@ -30,7 +30,7 @@ module.exports = {
     pretty: true,
   },
 
-  defaultNetwork: "gnosis",
+  defaultNetwork: "localhost",
   networks: {
     localhost: {
       url: "http://localhost:8545",

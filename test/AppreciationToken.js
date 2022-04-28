@@ -10,14 +10,8 @@ describe("AppreciationToken", function () {
 
     let balanceBefore = await aprToken.balanceOf(owner.address)
     expect(balanceBefore).to.equal(0)
-    await aprToken.mintTo(owner.address)
+    await aprToken.mintTo(owner.address, "name", "location", "message")
     let balanceAfter = await aprToken.balanceOf(owner.address)
-    expect(balanceAfter).to.equal(1)
-
-    balanceBefore = await aprToken.balanceOf(signer1.address)
-    expect(balanceBefore).to.equal(0)
-    await aprToken.mintTo(signer1.address)
-    balanceAfter = await aprToken.balanceOf(signer1.address)
     expect(balanceAfter).to.equal(1)
   });
 });

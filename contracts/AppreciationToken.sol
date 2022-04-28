@@ -61,14 +61,14 @@ contract AppreciationToken is ERC721 {
         return "ipfs://bafkreifn4wzv5n2yztmwjlyoovnhrmcqqtqv4igltwi3z4anxsbnh4oqni";
     }
 
-    /**
-     * @dev Base URI for computing {tokenURI}. If set, the resulting URI for each
-     * token will be the concatenation of the `baseURI` and the `tokenId`. Empty
-     * by default, can be overriden in child contracts.
-     */
-    function _baseURI() internal view virtual override returns (string memory) {
-        return "ipfs://bafkreifn4wzv5n2yztmwjlyoovnhrmcqqtqv4igltwi3z4anxsbnh4oqni";
-    }
+    // /**
+    //  * @dev Base URI for computing {tokenURI}. If set, the resulting URI for each
+    //  * token will be the concatenation of the `baseURI` and the `tokenId`. Empty
+    //  * by default, can be overriden in child contracts.
+    //  */
+    // function _baseURI() internal view virtual override returns (string memory) {
+    //     return "ipfs://bafkreifn4wzv5n2yztmwjlyoovnhrmcqqtqv4igltwi3z4anxsbnh4oqni";
+    // }
 
     function getAllMinters() public view returns (address[] memory) {
         return allMinters;
