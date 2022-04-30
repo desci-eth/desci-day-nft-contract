@@ -6,7 +6,9 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 contract AppreciationToken is ERC721 {
     uint256 public _currentTokenId = 0;//Token ID here will start from 1
+    mapping(uint => string) public getTokenURI; // tokenId => tokenURI
 
+    mapping(address => address) public getNameFromAddress;
     address[] public allMinters;
 
     constructor(
@@ -18,19 +20,21 @@ contract AppreciationToken is ERC721 {
     /**
      * @dev Mints a token to an address with a tokenURI.
      * @param _to address of the future owner of the token
-     * @param name name of the minter
-     * @param location location of the minter
-     * @param message message from the minter to DeSci Day organizers
+     * @param tokenURI token URI
      */
-    function mintTo(address _to, string memory tokenURI) public returns (uint256) {
+    function mintTo(address _to, string memory _tokenURI) public returns (uint256) {
         uint256 newTokenId = _getNextTokenId();
         _mint(_to, newTokenId);
         _incrementTokenId();
-        _setTokenURI(newTokenId, tokenURI);
-        if (bytes(getNameFromAddress[msg.sender]).length == 0) {
+        _setTokenURI(newTokenId, _tokenURI);
+        if (getNameFromAddress[msg.sender] == address(0)) {
             allMinters.push(msg.sender);
         }
         return newTokenId;
+    }
+
+    function _setTokenURI(uint newTokenId, string memory _tokenURI) public {
+        getTokenURI[newTokenId] = _tokenURI;
     }
 
     function getNextTokenImageId() public view returns (uint256) {
@@ -56,7 +60,7 @@ contract AppreciationToken is ERC721 {
      * @dev See {IERC721Metadata-tokenURI}.
      */
     function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
-        return "ipfs://bafkreifn4wzv5n2yztmwjlyoovnhrmcqqtqv4igltwi3z4anxsbnh4oqni";
+        return getTokenURI[tokenId];
     }
 
     // /**

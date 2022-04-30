@@ -38,10 +38,10 @@ module.exports = {
     },
     // hardhat: {
     // },
-    gnosis: {
-      url: "https://xdai-rpc.gateway.pokt.network",
-      accounts: [process.env.PRIVATE_KEY1]
-    }
+    // gnosis: {
+    //   url: "https://xdai-rpc.gateway.pokt.network",
+    //   accounts: [process.env.PRIVATE_KEY1]
+    // }
   },
   // paths: {
   //   sources: "./contracts",
