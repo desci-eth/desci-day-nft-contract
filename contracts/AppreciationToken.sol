@@ -5,11 +5,7 @@ import "hardhat/console.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 contract AppreciationToken is ERC721 {
-    uint256 private _currentTokenId = 0;//Token ID here will start from 1
-
-    mapping(address => string) public getNameFromAddress;
-    mapping(address => string) public getLocationFromAddress;
-    mapping(address => string) public getMessageFromAddress;
+    uint256 public _currentTokenId = 0;//Token ID here will start from 1
 
     address[] public allMinters;
 
@@ -26,16 +22,13 @@ contract AppreciationToken is ERC721 {
      * @param location location of the minter
      * @param message message from the minter to DeSci Day organizers
      */
-    function mintTo(address _to, string memory name, string memory location, string memory message) public {
+    function mintTo(address _to, string memory name) public {
         uint256 newTokenId = _getNextTokenId();
         _mint(_to, newTokenId);
         _incrementTokenId();
         if (bytes(getNameFromAddress[msg.sender]).length == 0) {
             allMinters.push(msg.sender);
         }
-        getNameFromAddress[msg.sender] = name;
-        getLocationFromAddress[msg.sender] = location;
-        getMessageFromAddress[msg.sender] = message;
     }
 
     function getNextTokenImageId() public view returns (uint256) {
