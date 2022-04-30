@@ -30,12 +30,18 @@ module.exports = {
     pretty: true,
   },
 
-  defaultNetwork: "localhost",
+  defaultNetwork: "rinkeby",
   networks: {
     localhost: {
       url: "http://localhost:8545",
       accounts: ["0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"]
     },
+    rinkeby: {
+      url: "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
+      accounts: [process.env.PRIVATE_KEY],
+      chainId: 4,
+      symbol: "ETH"
+    }
     // hardhat: {
     // },
     // gnosis: {
