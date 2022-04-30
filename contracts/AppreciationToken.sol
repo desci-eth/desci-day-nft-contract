@@ -22,13 +22,15 @@ contract AppreciationToken is ERC721 {
      * @param location location of the minter
      * @param message message from the minter to DeSci Day organizers
      */
-    function mintTo(address _to, string memory name) public {
+    function mintTo(address _to, string memory tokenURI) public returns (uint256) {
         uint256 newTokenId = _getNextTokenId();
         _mint(_to, newTokenId);
         _incrementTokenId();
+        _setTokenURI(newTokenId, tokenURI);
         if (bytes(getNameFromAddress[msg.sender]).length == 0) {
             allMinters.push(msg.sender);
         }
+        return newTokenId;
     }
 
     function getNextTokenImageId() public view returns (uint256) {
