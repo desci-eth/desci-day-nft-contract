@@ -4,7 +4,6 @@ pragma solidity ^0.8.0;
 import "hardhat/console.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
-
 contract AppreciationToken is ERC721 {
     uint256 private _currentTokenId = 0;//Token ID here will start from 1
 
@@ -37,6 +36,10 @@ contract AppreciationToken is ERC721 {
         getNameFromAddress[msg.sender] = name;
         getLocationFromAddress[msg.sender] = location;
         getMessageFromAddress[msg.sender] = message;
+    }
+
+    function getNextTokenImageId() public view returns (uint256) {
+        return (_currentTokenId + 1) % 41;
     }
 
     /**
