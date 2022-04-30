@@ -20,7 +20,7 @@ contract AppreciationToken is ERC721 {
     /**
      * @dev Mints a token to an address with a tokenURI.
      * @param _to address of the future owner of the token
-     * @param tokenURI token URI
+     * @param _tokenURI token URI
      */
     function mintTo(address _to, string memory _tokenURI) public returns (uint256) {
         uint256 newTokenId = _getNextTokenId();
