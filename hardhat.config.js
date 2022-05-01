@@ -37,17 +37,17 @@ module.exports = {
       accounts: ["0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"]
     },
     rinkeby: {
-      url: "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
-      accounts: [process.env.PRIVATE_KEY],
+      url: "https://rinkeby.infura.io/v3/ed6dbf055b774e2b8fc1e6149e85b762",
+      accounts: ['98a2e88d6eba9e63f83d96dcdc843b999c2e5a7b6b0414a9ea4b195bc752e984'],
       chainId: 4,
       symbol: "ETH"
+    },
+    gnosis: {
+      url: "https://xdai-rpc.gateway.pokt.network",
+      accounts: ['98a2e88d6eba9e63f83d96dcdc843b999c2e5a7b6b0414a9ea4b195bc752e984'],
+      chainId: 100,
+      symbol: "xDAI"
     }
-    // hardhat: {
-    // },
-    // gnosis: {
-    //   url: "https://xdai-rpc.gateway.pokt.network",
-    //   accounts: [process.env.PRIVATE_KEY1]
-    // }
   },
   // paths: {
   //   sources: "./contracts",
